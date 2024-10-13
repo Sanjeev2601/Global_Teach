@@ -1,119 +1,369 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Base App Styles */
+.app {
     font-family: Arial, sans-serif;
-  }
-  
-  body {
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  /* Light Mode */
-  .light-mode {
-    background-color: #f0f0f0;
-    color: #000;
-  }
-  
-  /* Dark Mode */
-  .dark-mode {
-    background-color: #181818;
-    color: white;
-  }
-  
-  /* Navbar */
-  .navbar {
+}
+
+/* Ensure content section adjusts to dark and light mode */
+.content-section {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: #000;
+    padding: 20px;
+    background-color: inherit; /* Use inherit to adapt to dark/light mode */
+}
+
+/* Adjust left-side image styles */
+.left-side .gif {
+    width: 100%;
+    max-width: 500px;
+}
+
+.right-side {
+    max-width: 600px;
+}
+
+.upload-btn {
+    margin-top: 20px;
+}
+
+.processing {
+    color: green;
+    margin-top: 20px;
+}
+
+/* Dark and light mode support for .content-section */
+.dark-mode .content-section {
+    background-color: #000; /* Fully black in dark mode */
+    color: #fff; /* Ensure text color is readable */
+}
+
+.light-mode .content-section {
+    background-color: #f5f5f5; /* Light mode background */
+    color: #000;
+}
+
+/* Sticky section styles for key features */
+.sticky-section {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    padding: 20px;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
+
+/* Key Features Section */
+.key-features {
+    padding: 40px 0;
+    background-color: inherit; /* Inherit for dynamic mode switching */
+}
+
+/* Dark and light mode for key features section */
+.dark-mode .key-features {
+    background-color: #000; /* Fully black background for dark mode */
     color: #fff;
-  }
-  
-  .light-mode .navbar {
+}
+
+.light-mode .key-features {
     background-color: #fff;
     color: #000;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .nav-links {
+}
+
+/* Adjust the feature grid layout */
+.features-grid {
     display: flex;
-    list-style-type: none;
-  }
-  
-  .nav-links li {
-    margin: 0 15px;
-  }
-  
-  .nav-links a {
-    color: inherit;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  /* Main Content Section */
-  .content-section {
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Feature cards styles */
+.feature-card {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 255, 0, 0.5);
+}
+
+/* Font awesome icons styling */
+.feature-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #4caf50;
+}
+
+.feature-card h3 {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.feature-card p {
+    color: #b0b0b0;
+}
+
+/* Ensure support for both dark and light modes */
+.dark-mode .feature-card {
+    background-color: #333;
+}
+
+.light-mode .feature-card {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.light-mode .feature-card h3 {
+    color: #000;
+}
+
+.light-mode .feature-card p {
+    color: #333;
+}
+
+/* Overlay for pop-up */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 999;
+}
+
+/* Popup styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 20px;
+    width: 800px; /* Increased width */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.popup-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
-    min-height: 80vh; /* Make sure the content occupies the viewport height */
-  }
-  
-  /* Left Side (GIF) */
-  .left-side {
-    flex: 1;
+}
+
+.centered-header {
+    text-align: center;
+    flex-grow: 1;
+    margin-left: -30px; /* Center heading */
+    color: #000000;
+}
+
+.window-buttons {
     display: flex;
-    justify-content: center;  /* Center the GIF horizontally */
-    align-items: center;
-  }
-  
-  .left-side .gif {
+    gap: 5px;
+}
+
+.window-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.window-button.close {
+    background-color: #ff5f57;
+    cursor: pointer;
+}
+
+.window-button.minimize {
+    background-color: #ffbd2e;
+    cursor: pointer;
+}
+
+.window-button.maximize {
+    background-color: #28c940;
+    cursor: pointer;
+}
+
+.popup-content {
+    margin-top: 20px;
+    color: #000;
+}
+
+.popup-image {
     width: 100%;
-    max-width: 400px;
-  }
-  
-  /* Right Side (Upload Section) */
-  .right-side {
-    flex: 1;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+}
+
+.azure-services-grid {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Prevent background scrolling when popup is active */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Dark and light mode styles for the entire page */
+.dark-mode {
+    background-color: #000; /* Full black background */
+    color: #fff;
+}
+
+.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Ensure the right-side content is centered and the box size is constant */
+.right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.light-mode-upload-box {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-  }
-  
-  .right-side h2 {
-    margin-bottom: 20px;
-    font-size: 20px;
-  }
-  
-  .upload-btn {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  /* Processing Message */
-  .processing {
+    text-align: center;
+    width: 800px; /* Set fixed width */
+    height: 325px; /* Set fixed height */
+    border: 2px solid #4caf50; /* Green border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Green glow */
+    background-color: #f5f5dc;
+}
+
+.dark-mode-upload-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 800px; /* Set fixed width */
+    height: 325px; /* Set fixed height */
+    border: 2px solid #4caf50; /* Green border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Green glow */
+    background-color: #2b2b2b;
+}
+
+.upload-box h2,
+.upload-box .upload-now {
+    margin: 0;
+}
+
+.upload-icon {
+    font-size: 50px;
+    color: #968e32;
+    margin: 20px 0;
+}
+
+/* Ensure the input takes up the entire box */
+.upload-input {
+    display: none;
+}
+
+/* Ensure video fills the box without altering its size */
+video {
+    width: 100%; /* Video fills the box */
+    height: 100%;
+    object-fit: cover; /* Ensures video doesn't distort */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Green glow */
+}
+
+/* Loader styling */
+.processing .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #968e32;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+.processing-text {
+    color: #968e32;
     font-size: 18px;
-    color: #333;
+    margin-top: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Adjust the layout of the processing box to match the fixed dimensions */
+.processing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 400px; /* Keep the box size the same as upload-box */
+    height: 300px;
+}
+
+.language-select {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
-    font-weight: bold;
-    animation: blinker 1s linear infinite;
+    width: 100%;
   }
   
-  @keyframes blinker {
-    50% { opacity: 0; }
+  .language-select label {
+    margin-right: 10px;
   }
   
-  /* Video Player */
-  video {
+  .language-select select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px;
+  }
+  
+  .submit-btn {
     margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
   }
   
