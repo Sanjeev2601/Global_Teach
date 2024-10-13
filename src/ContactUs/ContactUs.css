@@ -1,0 +1,131 @@
+/* ContactUs.css */
+
+/* Base Styles */
+.about-container {
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.about-container h1,
+.about-container h2,
+.about-container p {
+  margin-bottom: 20px;
+}
+
+.team-section {
+  margin-top: 40px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Light Mode */
+body.light-mode .about-container {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light-mode .team-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+body.light-mode .team-member {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+body.light-mode .team-member a {
+  color: #1e90ff;
+}
+
+/* Dark Mode */
+body.dark-mode .about-container {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode .team-section {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+body.dark-mode .team-member {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+}
+
+body.dark-mode .team-member a {
+  color: #bb86fc;
+}
+
+/* Team Member Card Styles */
+.team-member {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  margin: 10px 0 5px 0;
+  font-size: 1.2em;
+}
+
+.team-member p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.team-member a {
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.team-member a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member {
+    width: 80%;
+  }
+}
+
+/* Transitions for Smooth Theme Switching */
+body.light-mode,
+body.dark-mode {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.about-container,
+.team-section,
+.team-member {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}

@@ -50,8 +50,6 @@ function Home() {
         <div className="left-side">
           <img src={h1} alt="Home gif" className="gif" />
         </div>
-
-        {/* Right side: Video Upload Section */}
         <div className="right-side">
           <h2>Upload your video to play in your native language</h2>
           <input 
@@ -60,11 +58,7 @@ function Home() {
             onChange={handleVideoUpload} 
             className="upload-btn"
           />
-
-          {/* Show processing message */}
           {isProcessing && <p className="processing">Processing...</p>}
-
-          {/* Show video player after processing */}
           {videoURL && !isProcessing && (
             <video width="320" height="240" controls>
               <source src={videoURL} type="video/mp4" />
