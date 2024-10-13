@@ -4,21 +4,24 @@ import Home from './Home/Home';
 import Footer from './Footer/Footer';
 import ContactUs from './ContactUs/ContactUs';
 import AboutUs from './AboutUs/AboutUs';
+import ThemeProvider from './Context/ThemeContext'; // Import the ThemeContext
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="*" element={<h1>404: Page Not Found</h1>} />
-        </Routes>
-        {/* <Footer /> */}
-      </div>
-    </Router>
+    <ThemeProvider> {/* Wrap the entire app with ThemeProvider */}
+      <Router>
+        <div className="app">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="*" element={<h1>404: Page Not Found</h1>} />
+          </Routes>
+          {/* <Footer /> */}
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

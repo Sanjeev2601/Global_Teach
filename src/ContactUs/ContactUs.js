@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';  
 import './ContactUs.css';
 import p1 from '../assets/avatars/team_member_1.jpg';
 import p2 from '../assets/avatars/team_member_2.jpg';
@@ -6,6 +6,7 @@ import p3 from '../assets/avatars/team_member_3.jpg';
 import p4 from '../assets/avatars/team_member_4.jpg';
 import TeamMember from '../TeamMember/TeamMember';
 import Navbar from '../Navbar/Navbar';
+import { ThemeContext } from '../Context/ThemeContext'; // Import ThemeContext
 
 const teamMembers = [
   {
@@ -43,26 +44,10 @@ const teamMembers = [
 ];
 
 function ContactUs() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(prevMode => !prevMode);
-  };
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
-    }
-  }, []);
-
-  useEffect(() => {
-    document.body.className = isDarkMode ? 'dark-mode' : 'light-mode';
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext); // Use ThemeContext
 
   return (
-    <div className="contactus-container">
+    <div className={`contactus-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
       <div className="contact-content">
         <h1>Contact Us</h1>

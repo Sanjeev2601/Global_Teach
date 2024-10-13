@@ -1,74 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMicrophoneAlt, faCloud, faBookOpen, faUpload } from '@fortawesome/free-solid-svg-icons'; // FontAwesome Icons
+import { faMicrophoneAlt, faCloud, faBookOpen, faUpload } from '@fortawesome/free-solid-svg-icons'; 
 import Navbar from '../Navbar/Navbar'; 
 import h1 from '../assets/home1.gif'; 
 import './Home.css';
 import Footer from '../Footer/Footer';
 import azureBlobImage from '../assets/Azure1.png'; 
 import azureCosmosImage from '../assets/Azure2.png'; 
+import { ThemeContext } from '../Context/ThemeContext'; 
 
 function Home() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode } = useContext(ThemeContext); 
   const [selectedVideo, setSelectedVideo] = useState(null); 
-  const [fromLanguage, setFromLanguage] = useState(''); // State for language from
-  const [toLanguage, setToLanguage] = useState(''); // State for language to
+  const [fromLanguage, setFromLanguage] = useState(''); 
+  const [toLanguage, setToLanguage] = useState(''); 
   const [isProcessing, setIsProcessing] = useState(false); 
   const [videoURL, setVideoURL] = useState(null); 
-  const [showPopup, setShowPopup] = useState(false); // For Azure Services pop-up
-  const [uploadedFileName, setUploadedFileName] = useState(''); // To display uploaded file name
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark');
-    }
-  }, []);
-
-  useEffect(() => {
-    document.body.className = isDarkMode ? 'dark-mode' : 'light-mode';
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+  const [showPopup, setShowPopup] = useState(false); 
+  const [uploadedFileName, setUploadedFileName] = useState(''); 
 
   const handleVideoUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       setSelectedVideo(file);
-      setUploadedFileName(file.name); // Display the name of the file uploaded
+      setUploadedFileName(file.name); 
+      console.log(`${file.name.split('.')[0]} is uploaded (file name is ${file.name})`);
     }
   };
 
   const handleSubmit = () => {
     if (selectedVideo && fromLanguage && toLanguage) {
       setIsProcessing(true);
+
+      // Backend integration placeholder
+      sendFileNameToBackend(uploadedFileName);
+
       setTimeout(() => {
         const videoUrl = URL.createObjectURL(selectedVideo);
-        setVideoURL(videoUrl); // Only set the video URL after processing
+        setVideoURL(videoUrl);
         setIsProcessing(false);
-      }, 5000); // Simulate processing time
+      }, 5000); 
     } else {
       alert("Please upload a video and select both languages.");
     }
   };
 
+  const sendFileNameToBackend = (fileName) => {
+    console.log(`Sending file name ${fileName} to backend...`);
+  };
+
   const handleAzureServicesClick = () => {
     setShowPopup(true);
-    document.body.classList.add('no-scroll'); // Disable background scrolling
+    document.body.classList.add('no-scroll');
   };
 
   const closePopup = () => {
     setShowPopup(false);
-    document.body.classList.remove('no-scroll'); // Enable background scrolling
+    document.body.classList.remove('no-scroll');
   };
 
   return (
     <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-
+      <Navbar />
+      
       <div className="content-section">
         <div className="left-side">
           <img src={h1} alt="Home gif" className="gif" />
@@ -99,10 +93,8 @@ function Home() {
               />
               <p className="upload-now">Upload Now!</p>
 
-              {/* Show file name after upload */}
               {uploadedFileName && <p className="uploaded-file-name">{uploadedFileName}</p>}
 
-              {/* Language Selection Dropdowns */}
               <div className="language-select">
                 <label>Language From:</label>
                 <select value={fromLanguage} onChange={(e) => setFromLanguage(e.target.value)}>
@@ -121,7 +113,6 @@ function Home() {
                 </select>
               </div>
 
-              {/* Submit Button */}
               <button className="submit-btn" onClick={handleSubmit}>
                 Submit
               </button>
@@ -130,7 +121,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Key Features Section */}
       <section className="key-features sticky-section">
         <h2>Key Features</h2>
         <div className="features-grid">
@@ -158,6 +148,33 @@ function Home() {
         </div>
       </section>
 
+      {showPopup && (
+        <>
+          <div className="overlay"></div>
+          <div className="popup">
+            <div className="popup-header">
+              <div className="window-buttons">
+                <span className="window-button close" onClick={closePopup}></span>
+                <span className="window-button minimize" onClick={closePopup}></span>
+                <span className="window-button maximize" onClick={closePopup}></span>
+              </div>
+              <h2>Azure Services</h2>
+            </div>
+            <div className="popup-content">
+              <h3>Azure Blob Storage</h3>
+              <div className="azure-services-grid">
+                <p>Azure Blob Storage is used for storing large amounts of unstructured data such as text or binary data.</p>
+                <img src={azureBlobImage} alt="Azure Blob Storage" className="popup-image" />
+              </div>
+              <h3>Azure Cosmos DB</h3>
+              <div className="azure-services-grid">
+                <img src={azureCosmosImage} alt="Azure Cosmos DB" className="popup-image" />
+                <p>Azure Cosmos DB is a fully managed NoSQL database service for building highly responsive and globally distributed applications.</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
       <Footer />
     </div>
   );

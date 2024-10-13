@@ -156,20 +156,23 @@
 
 .popup-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Aligns the buttons and header elements to the left */
     align-items: center;
-}
-
-.centered-header {
-    text-align: center;
-    flex-grow: 1;
-    margin-left: -30px; /* Center heading */
     color: #000000;
+    position: relative; /* Allows positioning elements inside */
 }
 
 .window-buttons {
     display: flex;
     gap: 5px;
+    position: absolute; /* Position the buttons absolutely within the header */
+    left: 0; /* Align to the left */
+}
+
+.centered-header {
+    text-align: center;
+    flex-grow: 1;
+    color: #000000;
 }
 
 .window-button {
@@ -282,10 +285,20 @@ footer p {
     margin: 0;
 }
 
+/* Base styles for upload-icon that apply to both light and dark mode */
 .upload-icon {
-    font-size: 40px;
-    color: #303030;
-    margin: 20px 0;
+    font-size: 50px; /* Keep the size consistent */
+    margin: 20px 0;  /* Keep margin consistent */
+}
+
+/* Specific styles for light mode */
+.light-mode .upload-icon {
+    color: #303030; /* Change only the color */
+}
+
+/* Specific styles for dark mode */
+.dark-mode .upload-icon {
+    color: #f1f9ff; /* Change only the color */
 }
 
 /* Ensure the input takes up the entire box */
