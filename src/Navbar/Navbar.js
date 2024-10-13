@@ -1,6 +1,7 @@
 // Navbar.js
 import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 function Navbar({ toggleTheme, isDarkMode }) {
   return (
@@ -9,7 +10,9 @@ function Navbar({ toggleTheme, isDarkMode }) {
       <ul className="nav-links">
         <li><a href="/">Product</a></li>
         <li><a href="/">About</a></li>
-        <li><a href="/">Contact</a></li>
+        <li><Link to="/contact">Contact</Link></li>
+        {/* <Link to="/aboutus">About</Link>
+        <Link to="/contact">Contact</Link> */}
       </ul>
       <button className="theme-toggle-btn" onClick={toggleTheme}>
         {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}

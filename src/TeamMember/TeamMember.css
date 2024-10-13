@@ -1,0 +1,43 @@
+.team-member {
+    background-color: #1f1f1f;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 20px;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+  
+  .team-member h3 {
+    color: #00bcd4;
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-member p {
+    color: #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-icons a {
+    color: #00bcd4;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+  
+  .contact-icons a:hover {
+    color: #008c9e;
+  }
