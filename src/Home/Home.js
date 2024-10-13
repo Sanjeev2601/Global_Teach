@@ -32,7 +32,7 @@ function Home() {
     if (selectedVideo && fromLanguage && toLanguage) {
       setIsProcessing(true);
 
-      // Backend integration placeholder
+      // Placeholder for backend integration
       sendFileNameToBackend(uploadedFileName);
 
       setTimeout(() => {
@@ -45,8 +45,15 @@ function Home() {
     }
   };
 
+  // Placeholder function for sending the file name to the backend
   const sendFileNameToBackend = (fileName) => {
     console.log(`Sending file name ${fileName} to backend...`);
+  };
+
+  // Placeholder function for downloading notes for selected languages
+  const handleDownloadNotes = (language) => {
+    console.log(`Downloading ${language} notes for file: ${uploadedFileName}`);
+    // Replace with actual backend call for downloading notes
   };
 
   const handleAzureServicesClick = () => {
@@ -68,26 +75,36 @@ function Home() {
           <img src={h1} alt="Home gif" className="gif" />
         </div>
         <div className="right-side">
-  {isProcessing ? (
-    <div className="upload-box processing">
-      <div className="loader"></div>
-      <p className="processing-text">Processing...</p>
-    </div>
-  ) : videoURL ? (
-    <>
-      <div className="video-container"> {/* Add container to hold video and buttons */}
-      <video width="320" height="240" controls>
-        <source src={videoURL} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+          {isProcessing ? (
+            <div className="upload-box processing">
+              <div className="loader"></div>
+              <p className="processing-text">Processing...</p>
+            </div>
+          ) : videoURL ? (
+            <>
+              <div className="video-container">
+                <video width="320" height="240" controls>
+                  <source src={videoURL} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-      {/* Buttons below the video */}
-      <div className="notes-buttons">
-        <button className="download-btn">{fromLanguage} Notes</button>
-        <button className="download-btn">{toLanguage} Notes</button>
-      </div>
-    </div>
-    </>
+                {/* Buttons below the video */}
+                <div className="notes-buttons">
+                  <button 
+                    className="download-btn" 
+                    onClick={() => handleDownloadNotes(fromLanguage)}
+                  >
+                    {fromLanguage} Notes
+                  </button>
+                  <button 
+                    className="download-btn" 
+                    onClick={() => handleDownloadNotes(toLanguage)}
+                  >
+                    {toLanguage} Notes
+                  </button>
+                </div>
+              </div>
+            </>
           ) : (
             <div className={`upload-box ${isDarkMode ? 'dark-mode-upload-box' : 'light-mode-upload-box'}`}>
               <h2>Upload your video to play in your native language</h2>
