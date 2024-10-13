@@ -203,10 +203,51 @@
 
 .popup-image {
     width: 100%;
-    max-width: 300px;
+    max-height: 100px;
+    width: auto;
+    /* max-width: 300px; */
     margin: 20px auto;
     display: block;
 }
+
+/* Future Scope Section */
+.future-scope-grid {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    gap: 20px; /* Adds space between the items */
+    margin-top: 20px; /* Adds space before the future scope section */
+  }
+  
+  /* Individual future scope item */
+  .future-scope-item {
+    text-align: center;
+    width: 30%; /* Ensures each item has a consistent width */
+    font-weight: bold; /* Makes the text bold */
+  }
+  
+  /* Center the "Future Scope" heading */
+  .popup-content h3 {
+    /* text-align: center; */
+    font-weight: bold; /* Make the text bold */
+  }
+
+  .popup-content h2 {
+    text-align: center;
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  .popup-content h3#future-scope {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem; /* You can adjust the font size if needed */
+  }
+  
+  /* Styling for future scope images */
+  .popup-image-small {
+    width: 80px; /* Smaller image size for future scope */
+    height: auto;
+    margin-bottom: 10px; /* Adds spacing between the image and the name */
+  }  
 
 .azure-services-grid {
     display: flex;

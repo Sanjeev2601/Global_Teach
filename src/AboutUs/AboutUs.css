@@ -1,76 +1,387 @@
-body.light-mode {
-  background-color: #f5f5f5;
-  color: #333;
+/* Grid layout for boxes */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* Necessary for positioning the button */
 }
 
-body.dark-mode {
-  background-color: #181818;
+/* Each individual box */
+/* Each individual box */
+.grid-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+  border: 2px solid #00bcd4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00bcd4;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  perspective: 1000px; /* Enable 3D perspective for flipping */
+}
+
+/* Specific colors for the boxes */
+.grid-box:nth-child(1) {
+  background-color: #F35325; /* Orange */
+}
+
+.grid-box:nth-child(2) {
+  background-color: #81BC06; /* Green */
+}
+
+.grid-box:nth-child(3) {
+  background-color: #05A6F0; /* Blue */
+}
+
+.grid-box:nth-child(4) {
+  background-color: #FFBA08; /* Yellow */
+}
+
+.box-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d; /* Allows flipping */
+}
+
+.flipped .box-content {
+  transform: rotateY(180deg); /* Rotate to show back side */
+}
+
+.box-front, .box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back of the element when flipping */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Lighter color for the back side of each box */
+/* Back of the first box */
+.grid-box:nth-child(1) .box-back {
+  background-color: #FF8362; /* Lighter Orange */
+  color: black; /* Text color */
+  padding: 20px;
+  font-size: 1.2rem;
+  text-align: center; /* Center everything */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures width doesn't exceed */
+  box-sizing: border-box; /* Include padding in the width */
+  height: 100%; /* Ensures the height remains consistent */
+  overflow-wrap: break-word; /* Prevent text from overflowing */
+}
+
+/* Icon and title container */
+.icon-and-title {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  justify-content: center; /* Center both items horizontally */
+}
+
+.icon-and-title i {
+  margin-right: 10px; /* Add space between the icon and the heading */
+  font-size: 2rem; /* Adjust icon size */
+}
+
+.icon-and-title h3 {
+  font-size: 2rem; /* Adjust text size */
+}
+
+
+/* Font Awesome icon styling inside the box */
+.grid-box:nth-child(1) .box-back i {
+  font-size: 2.5rem; /* Adjust the size of the icon */
+  margin-bottom: 10px;
+}
+
+/* Heading styling */
+.grid-box:nth-child(1) .box-back h3 {
+  font-size: 1.8rem; /* Slightly larger heading */
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap; /* Prevents heading from wrapping */
+}
+
+/* Paragraph text */
+.grid-box:nth-child(1) .box-back p {
+  justify-content: baseline;
+  text-align: start;
+  margin-left: -40px;
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 90%; /* Ensures the text doesn't exceed the box width */
+}
+
+/* Back of the second box */
+.grid-box:nth-child(2) .box-back {
+  background-color: #A4D14E; /* Lighter Green */
+  color: black; /* Text color */
+  padding: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures width doesn't exceed */
+  box-sizing: border-box; /* Include padding in the width */
+  height: 100%; /* Ensures the height remains consistent */
+  overflow-wrap: break-word; /* Prevent text from overflowing */
+}
+
+/* Icon and title container for Box 2 */
+.grid-box:nth-child(2) .box-back .icon-and-title {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  justify-content: center; /* Center both items horizontally */
+}
+
+/* Icon styling for Box 2 */
+.grid-box:nth-child(2) .box-back i {
+  margin-right: 10px;
+  font-size: 2rem;
+}
+
+/* Heading styling for Box 2 */
+.grid-box:nth-child(2) .box-back h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap; /* Prevents heading from wrapping */
+}
+
+/* Paragraph text styling for Box 2 */
+.grid-box:nth-child(2) .box-back p {
+  justify-content: baseline;
+  text-align: start;
+  margin-left: 50px;
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 90%; /* Ensures the text doesn't exceed the box width */
+}
+
+.grid-box:nth-child(3) .box-back {
+  background-color: #7BCBF7; /* Lighter Blue */
   color: #fff;
 }
 
-.about-container {
-  min-height: 100vh;
-  margin-bottom: 100px;
-  transition: background-color 0.3s, color 0.3s;
+/* Back of the fourth box */
+.grid-box:nth-child(4) .box-back {
+  background-color: #FFDC72; /* Lighter Yellow */
+  color: black; /* Text color */
+  padding: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures width doesn't exceed */
+  box-sizing: border-box; /* Include padding in the width */
+  height: 100%; /* Ensures the height remains consistent */
+  overflow-wrap: break-word; /* Prevent text from overflowing */
 }
 
-.theme-toggle {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
+/* Icon and title container for Box 4 */
+.grid-box:nth-child(4) .box-back .icon-and-title {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  justify-content: center; /* Center both items horizontally */
+}
+
+/* Icon styling for Box 4 */
+.grid-box:nth-child(4) .box-back i {
+  margin-right: 10px;
+  font-size: 2rem;
+}
+
+/* Heading styling for Box 4 */
+.grid-box:nth-child(4) .box-back h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap; /* Prevents heading from wrapping */
+}
+
+/* Paragraph text styling for Box 4 */
+.grid-box:nth-child(4) .box-back p {
+  justify-content: baseline;
+  text-align: start;
+  margin-left: 0px;
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 90%; /* Ensures the text doesn't exceed the box width */
+}
+
+.box-back {
+  transform: rotateY(180deg); /* Back side is rotated */
   background-color: #00bcd4;
   color: #fff;
+}
+
+/* Circular button in the center */
+.center-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 50%;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
-  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.theme-toggle:hover {
-  background-color: #004d40;
+.center-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(128, 128, 128, 0.8);
 }
 
-.about-content {
-  max-width: 800px;
-  margin: 0 auto;
+/* Pop-up for the image */
+/* Disable pointer events for the navbar when popup is open */
+.navbar-overlay.disabled {
+  pointer-events: none;
+  opacity: 0.5; /* Optional: make the navbar visually inactive */
+}
+
+/* Full screen overlay to block all interactions except the pop-up */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 999; /* Ensure it is above all other elements */
+}
+
+/* Pop-up for the image */
+.image-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
   text-align: center;
-  padding-top: 10px;
 }
 
-.about-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #00bcd4;
+.architecture-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
 }
 
-.about-content p {
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 
-.avatar-section {
+.close-button:hover {
+  background-color: darkred;
+}
+/* Fix for content margin */
+.about-content {
+  margin-top: 20px;
+}
+
+/* Fix overflow issues */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Tech stack back side of the card */
+.tech-stack {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
+.tech-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for the first and third row */
+  gap: 10px 30px; /* Reduce vertical gap (first value) and increase horizontal gap (second value) */
+  margin-top: 10px;
+  max-width: 900px; 
+  justify-content: center;
 }
 
-.avatar-description {
-  font-size: 1.1rem;
-  color: #666;
-  margin-top: 20px;
+/* Each individual tech item */
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 75px; 
 }
 
-.light-mode .avatar-description {
-  color: #666;
+.tech-item img {
+  width: 45px; /* Reduced size of the icons */
+  height: 45px;
 }
 
-.dark-mode .avatar-description {
-  color: #ccc;
+.tech-item p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: black; /* Text color remains black */
+  text-align: center;
+}
+
+/* Center the second row */
+.tech-icons .tech-item:nth-child(7) {
+  grid-column: 2 / 3; /* Center the fourth item in the second row */
+  justify-self: center;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }

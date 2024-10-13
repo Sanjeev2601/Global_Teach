@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${isDarkMode ? 'dark-navbar' : 'light-navbar'}`}>
-      <div className="logo">Mengi-national</div>
+      <div className="logo">Translect.ai</div>
       <ul className="nav-links">
         <li><NavLink exact to="/">Product</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>

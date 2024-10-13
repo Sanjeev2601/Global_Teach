@@ -5,8 +5,11 @@ import Navbar from '../Navbar/Navbar';
 import h1 from '../assets/home1.gif'; 
 import './Home.css';
 import Footer from '../Footer/Footer';
-import azureBlobImage from '../assets/Azure1.png'; 
-import azureCosmosImage from '../assets/Azure2.png'; 
+import azureBlobImage from '../assets/blob.png'; 
+import azureCosmosImage from '../assets/azure.png';
+import azure3 from '../assets/azure3.png';
+import azure4 from '../assets/Azure4.png'; 
+import openaiImage from '../assets/openai.png';
 import { ThemeContext } from '../Context/ThemeContext'; 
 
 function Home() {
@@ -52,9 +55,23 @@ function Home() {
 
   // Placeholder function for downloading notes for selected languages
   const handleDownloadNotes = (language) => {
-    console.log(`Downloading ${language} notes for file: ${uploadedFileName}`);
-    // Replace with actual backend call for downloading notes
+    let fileName = '';
+  
+    if (language === 'English') {
+      fileName = 'english.pdf'; // Download English PDF
+    } else {
+      fileName = 'translate.pdf'; // Download Translate PDF for any other language
+    }
+  
+    const filePath = require(`../assets/${fileName}`); // Path to the PDF file
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = fileName;
+    link.click();
+  
+    console.log(`Downloading ${fileName} for file: ${uploadedFileName}`);
   };
+  
 
   const handleAzureServicesClick = () => {
     setShowPopup(true);
@@ -178,28 +195,66 @@ function Home() {
       {showPopup && (
         <>
           <div className="overlay"></div>
-          <div className="popup">
-            <div className="popup-header">
-              <div className="window-buttons">
-                <span className="window-button close" onClick={closePopup}></span>
-                <span className="window-button minimize" onClick={closePopup}></span>
-                <span className="window-button maximize" onClick={closePopup}></span>
-              </div>
-              <h2>Azure Services</h2>
-            </div>
-            <div className="popup-content">
-              <h3>Azure Blob Storage</h3>
-              <div className="azure-services-grid">
-                <p>Azure Blob Storage is used for storing large amounts of unstructured data such as text or binary data.</p>
-                <img src={azureBlobImage} alt="Azure Blob Storage" className="popup-image" />
-              </div>
-              <h3>Azure Cosmos DB</h3>
-              <div className="azure-services-grid">
-                <img src={azureCosmosImage} alt="Azure Cosmos DB" className="popup-image" />
-                <p>Azure Cosmos DB is a fully managed NoSQL database service for building highly responsive and globally distributed applications.</p>
-              </div>
-            </div>
-          </div>
+<div className="popup">
+  <div className="popup-header">
+    <div className="window-buttons">
+      <span className="window-button close" onClick={closePopup}></span>
+      <span className="window-button minimize" onClick={closePopup}></span>
+      <span className="window-button maximize" onClick={closePopup}></span>
+    </div>
+    <h2>Azure Services We Used</h2>
+  </div>
+  <div className="popup-content">
+  <h3>Azure Blob Storage</h3>
+<div className="azure-services-grid">
+  <p>
+    Azure Blob Storage is used for storing large amounts of unstructured data such as text or binary data. 
+    It's like a huge cloud-based storage locker where you can keep your files, images, videos, or any other data. 
+    This service ensures that your data is securely stored and easily accessible from anywhere in the world.
+  </p>
+  <img src={azureBlobImage} alt="Azure Blob Storage" className="popup-image" />
+</div>
+
+<h3>Azure OpenAI (Whisper)</h3>
+<div className="azure-services-grid">
+  <img src={openaiImage} alt="Azure OpenAI" className="popup-image" />
+  <p>
+    Azure OpenAI Whisper is a speech-to-text tool that can transcribe live audio into text. 
+    Imagine talking to your computer and having it write down everything you say in real-time. 
+    This makes it ideal for tasks like note-taking during lectures or live captions for videos.
+  </p>
+</div>
+
+<h3>Azure Cosmos DB</h3>
+<div className="azure-services-grid">
+  <p>
+    Azure Cosmos DB is a fully managed NoSQL database that allows applications to quickly access and store information. 
+    It works across the globe, ensuring that no matter where users are, they can retrieve data fast. 
+    This service is ideal for apps that need to handle lots of data from different regions with high performance and reliability.
+  </p>
+  <img src={azureCosmosImage} alt="Azure Cosmos DB" className="popup-image" />
+</div>
+
+
+    {/* New Future Scope Section */}
+    <h2>Future Scope</h2>
+    <div className="future-scope-grid">
+      <div className="future-scope-item">
+        <img src={azure3} alt="Azure Video Translate API" className="popup-image-small" />
+        <p>Azure Video Translate API</p>
+      </div>
+      <div className="future-scope-item">
+        <img src={openaiImage} alt="Azure OpenAI" className="popup-image-small" />
+        <p>Azure OpenAI (chatgpt-4o-realtime)</p>
+      </div>
+      <div className="future-scope-item">
+        <img src={azure4} alt="Azure Custom Voice" className="popup-image-small" />
+        <p>Azure Custom Voice</p>
+      </div>
+    </div>
+  </div>
+</div>
+
         </>
       )}
       <Footer />

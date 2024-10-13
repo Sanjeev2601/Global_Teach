@@ -11,7 +11,10 @@
   .dark-navbar {
     background-color: #000; /* Black for dark mode */
   }
-  
+  .logo{
+    font-weight: bold;
+    font-size: 24px;
+  }
   /* Light Mode Navbar */
   .light-navbar {
     background-color: #fff; /* White for light mode */
