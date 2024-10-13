@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom'; // Added 'Link' import
 import './Navbar.css';
 
 function Navbar({ toggleTheme, isDarkMode }) {
@@ -8,8 +8,8 @@ function Navbar({ toggleTheme, isDarkMode }) {
       <div className="logo">Mengi-national</div>
       <ul className="nav-links">
         <li><a href="/">Product</a></li>
-        <li><a href="/">About</a></li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li><a href="/about">About</a></li>
+        <li><Link to="/contact">Contact</Link></li> {/* Using Link here */}
         {/* <Link to="/aboutus">About</Link>
         <Link to="/contact">Contact</Link> */}
       </ul>
