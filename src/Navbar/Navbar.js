@@ -9,7 +9,7 @@ function Navbar({ toggleTheme, isDarkMode }) {
       <div className="logo">Mengi-national</div>
       <ul className="nav-links">
         <li><a href="/">Product</a></li>
-        <li><a href="/">About</a></li>
+        <li><a href="/about">About</a></li>
         <li><Link to="/contact">Contact</Link></li>
         {/* <Link to="/aboutus">About</Link>
         <Link to="/contact">Contact</Link> */}
