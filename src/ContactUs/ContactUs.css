@@ -1,131 +1,118 @@
-/* ContactUs.css */
-
-/* Base Styles */
-.about-container {
-  padding: 20px;
-  transition: background-color 0.3s, color 0.3s;
+.contact-container {
+  padding: 2rem;
+  background-color: #f5f5f5;
+  color: #333;
+  min-height: 100vh;
 }
 
-.about-container h1,
-.about-container h2,
-.about-container p {
-  margin-bottom: 20px;
+.contact-content h1 {
+  text-align: left;
+  color: #00bcd4;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  padding-top: 20px;
+  padding-left: 20px
+}
+
+.contact-content p {
+  padding-left: 20px
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #999;
+}
+
+.contact-form button {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #00bcd4;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #004d40;
+}
+
+.contact-details {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-content h2 {
+  text-align: center;
+  color: #00bcd4;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.contact-details p {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #666;
 }
 
 .team-section {
-  margin-top: 40px;
+  padding: 2rem 0;
 }
 
 .team-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 2rem;
+  justify-content: center;
 }
 
-/* Light Mode */
-body.light-mode .about-container {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-body.light-mode .team-section {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-body.light-mode .team-member {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-}
-
-body.light-mode .team-member a {
-  color: #1e90ff;
-}
-
-/* Dark Mode */
-body.dark-mode .about-container {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-body.dark-mode .team-section {
-  background-color: #1e1e1e;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-body.dark-mode .team-member {
-  background-color: #1e1e1e;
-  border: 1px solid #444;
-}
-
-body.dark-mode .team-member a {
-  color: #bb86fc;
-}
-
-/* Team Member Card Styles */
 .team-member {
-  background-color: inherit;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
   width: 250px;
-  transition: background-color 0.3s, border-color 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .team-member img {
+  border-radius: 50%;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 .team-member h3 {
-  margin: 10px 0 5px 0;
-  font-size: 1.2em;
+  color: #00bcd4;
+  margin-bottom: 0.5rem;
 }
 
 .team-member p {
-  margin: 5px 0;
-  font-size: 0.9em;
-  text-align: center;
-}
-
-.team-member a {
-  text-decoration: none;
-  margin-top: 10px;
-  font-size: 0.9em;
-}
-
-.team-member a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .team-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .team-member {
-    width: 80%;
-  }
-}
-
-/* Transitions for Smooth Theme Switching */
-body.light-mode,
-body.dark-mode {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.about-container,
-.team-section,
-.team-member {
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  color: #666;
+  margin-bottom: 0.5rem;
 }

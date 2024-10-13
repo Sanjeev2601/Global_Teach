@@ -64,7 +64,7 @@ function ContactUs() {
   return (
     <div className="contactus-container">
       <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-      <div className="contactus-content">
+      <div className="contact-content">
         <h1>Contact Us</h1>
         <p>
           We are a team of passionate developers, designers, and creators who believe in the power of technology to solve problems and inspire innovation. Our mission is to build amazing solutions with modern technology.
