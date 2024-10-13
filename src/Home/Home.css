@@ -26,7 +26,7 @@
 }
 
 .processing {
-    color: green;
+    color: #00bcd4;
     margin-top: 20px;
 }
 
@@ -90,14 +90,14 @@
 
 .feature-card:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0px 4px 15px rgba(0, 255, 0, 0.5);
+    box-shadow: 0px 4px 15px #00bcd4;
 }
 
 /* Font awesome icons styling */
 .feature-card .icon {
     font-size: 40px;
     margin-bottom: 15px;
-    color: #4caf50;
+    color: #00bcd4;
 }
 
 .feature-card h3 {
@@ -257,10 +257,10 @@ footer p {
     text-align: center;
     width: 800px; /* Set fixed width */
     height: 325px; /* Set fixed height */
-    border: 2px solid #4caf50; /* Green border */
+    border: 2px solid #00bcd4; /* Green border */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Green glow */
-    background-color: #f5f5dc;
+    box-shadow: 0 0 10px #00bcd4; /* Green glow */
+    background-color: #f1f9ff;
 }
 
 .dark-mode-upload-box {
@@ -271,9 +271,9 @@ footer p {
     text-align: center;
     width: 800px; /* Set fixed width */
     height: 325px; /* Set fixed height */
-    border: 2px solid #4caf50; /* Green border */
+    border: 2px solid #00bcd4; /* Green border */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Green glow */
+    box-shadow: 0 0 10px #00bcd4; /* Green glow */
     background-color: #2b2b2b;
 }
 
@@ -283,8 +283,8 @@ footer p {
 }
 
 .upload-icon {
-    font-size: 50px;
-    color: #968e32;
+    font-size: 40px;
+    color: #303030;
     margin: 20px 0;
 }
 
@@ -299,13 +299,13 @@ video {
     height: 100%;
     object-fit: cover; /* Ensures video doesn't distort */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6); /* Green glow */
+    box-shadow: 0 0 10px #00bcd4; /* Green glow */
 }
 
 /* Loader styling */
 .processing .loader {
     border: 4px solid #f3f3f3;
-    border-top: 4px solid #968e32;
+    border-top: 4px solid #353535;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -314,7 +314,7 @@ video {
 }
 
 .processing-text {
-    color: #968e32;
+    color: #353535;
     font-size: 18px;
     margin-top: 10px;
 }
@@ -338,12 +338,12 @@ video {
 .language-select {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
-    width: 100%;
+    margin: 20px;
+    width: 98%;
   }
   
   .language-select label {
-    margin-right: 10px;
+    margin: 10px;
   }
   
   .language-select select {
@@ -356,7 +356,7 @@ video {
   .submit-btn {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color: #00bcd4;
     color: white;
     border: none;
     border-radius: 5px;
@@ -364,6 +364,6 @@ video {
   }
   
   .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #00bcd4;
   }
   
