@@ -68,16 +68,26 @@ function Home() {
           <img src={h1} alt="Home gif" className="gif" />
         </div>
         <div className="right-side">
-          {isProcessing ? (
-            <div className="upload-box processing">
-              <div className="loader"></div>
-              <p className="processing-text">Processing...</p>
-            </div>
-          ) : videoURL ? (
-            <video width="320" height="240" controls>
-              <source src={videoURL} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+  {isProcessing ? (
+    <div className="upload-box processing">
+      <div className="loader"></div>
+      <p className="processing-text">Processing...</p>
+    </div>
+  ) : videoURL ? (
+    <>
+      <div className="video-container"> {/* Add container to hold video and buttons */}
+      <video width="320" height="240" controls>
+        <source src={videoURL} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Buttons below the video */}
+      <div className="notes-buttons">
+        <button className="download-btn">{fromLanguage} Notes</button>
+        <button className="download-btn">{toLanguage} Notes</button>
+      </div>
+    </div>
+    </>
           ) : (
             <div className={`upload-box ${isDarkMode ? 'dark-mode-upload-box' : 'light-mode-upload-box'}`}>
               <h2>Upload your video to play in your native language</h2>

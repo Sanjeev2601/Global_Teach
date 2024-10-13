@@ -380,3 +380,35 @@ video {
     background-color: #00bcd4;
   }
   
+  /* Container for the buttons below the video */
+/* Reset styling for video and buttons container */
+.video-container {
+    display: block; /* Ensure it's a block element */
+    text-align: center; /* Center-align the content */
+    margin-top: 20px; /* Add space between the video and container */
+  }
+  
+  /* Notes buttons container */
+  .notes-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 20px; /* Space between buttons */
+    margin-top: 10px; /* Space above buttons */
+  }
+  
+  /* Style individual buttons */
+  .download-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .download-btn:hover {
+    background-color: #015f6c;
+  }
+  
