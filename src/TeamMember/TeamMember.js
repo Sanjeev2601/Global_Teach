@@ -1,6 +1,6 @@
 import React from 'react';
 import './TeamMember.css';
-import { FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 function TeamMember({ name, role, avatar, linkedin, email, phone }) {
   return (
@@ -15,9 +15,9 @@ function TeamMember({ name, role, avatar, linkedin, email, phone }) {
         <a href={`mailto:${email}`} aria-label={`Email ${name}`}>
           <FaEnvelope />
         </a>
-        <a href={`tel:${phone}`} aria-label={`Call ${name}`}>
+        {/* <a href={`tel:${phone}`} aria-label={`Call ${name}`}>
           <FaPhone />
-        </a>
+        </a> */}
       </div>
     </div>
   );
