@@ -18,7 +18,7 @@ const teamMembers = [
     phone: '+1 123 456 7890',
   },
   {
-    name: 'Sanjeev Parthasarathy',
+    name: 'Sanjeev P',
     role: 'Frontend Developer',
     avatar: p2,
     linkedin: 'https://www.linkedin.com/in/sanjeevp26',
@@ -26,7 +26,7 @@ const teamMembers = [
     phone: '+1 987 654 3210',
   },
   {
-    name: 'Ruba Vignesh',
+    name: 'Ruba Vignesh B',
     role: 'Backend Developer',
     avatar: p3,
     linkedin: 'https://www.linkedin.com/in/rubavignesh',
